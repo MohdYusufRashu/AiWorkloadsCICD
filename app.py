@@ -1,4 +1,5 @@
 # app.py
+# https://ai-workloads-cicd-ro4x.vercel.app/
 
 from flask import Flask, request, render_template
 #from google.cloud import aiplatform
