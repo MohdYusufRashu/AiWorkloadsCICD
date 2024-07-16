@@ -1,7 +1,7 @@
 # app.py
 
 from flask import Flask, request, render_template
-from google.cloud import aiplatform
+#from google.cloud import aiplatform
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -12,8 +12,8 @@ CORS(app)
 
 #os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/Users/mohdyusuf325/Downloads/majorproject-423008-545b126fcf7d.json"
 
-aiplatform.init(project="mtp-yusuf", location="us-central1")
-endpoint = aiplatform.Endpoint("5334924975969140736")
+#aiplatform.init(project="mtp-yusuf", location="us-central1")
+#endpoint = aiplatform.Endpoint("5334924975969140736")
 
 def predict_instances(instances):
     # Make predictions
@@ -44,18 +44,8 @@ def index():
         #instances = [[float(val) for val in data.split(",")]]
         
         # Get prediction
-        prediction = predict_instances(instances)
-        predicted_flower_name = prediction.predictions[0] 
-        predicted_flower_image_path = flower_image_mapping.get(predicted_flower_name, "default.jpg") 
 
-        data = {
-            "predicted_flower_name": predicted_flower_name,
-            "predicted_flower_image_path": predicted_flower_image_path,
-            "sepal_length": sepal_length,
-            "sepal_width": sepal_width,
-            "petal_length": petal_length,
-            "petal_width": petal_width
-        }
+        data={}
 
         return render_template("index.html", data=data)
 
